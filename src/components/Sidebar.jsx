@@ -1,4 +1,5 @@
 import React from "react";
+import { saveDataToServer } from "../utils/syncData";
 
 const colorOptions = ["cyan", "green", "blue", "yellow", "purple", "teal"];
 
@@ -37,7 +38,12 @@ const Sidebar = ({
     clickedCell,
     goToCell,
     setCellColor,
+    cellData,
 }) => {
+    const handleSave = async () => {
+        await saveDataToServer(cellData);
+    };
+
     return (
         <div style={sidebarStyle}>
             <div style={clickedCellStyle}>
@@ -84,6 +90,10 @@ const Sidebar = ({
             </div>
             <button style={highlightStyle} onClick={goToCell}>
                 Go to Cell
+            </button>
+
+            <button style={highlightStyle} onClick={handleSave}>
+                Save Grid State
             </button>
         </div>
     );

@@ -88,6 +88,7 @@ const MapGrid = () => {
                 clickedCell={clickedCell}
                 goToCell={scrollToItem}
                 setCellColor={setCellColor}
+                cellData={cellData}
             />
             <div style={gridContainerStyle}>
                 <Grid
